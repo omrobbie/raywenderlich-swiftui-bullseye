@@ -18,15 +18,15 @@ struct ContentView: View {
             }
 
             HStack {
-                Text("1")
+                Text("1").padding(.leading, 10)
                 Slider(value: .constant(10))
-                Text("100")
+                Text("100").padding(.trailing, 10)
             }
 
             Spacer()
             HStack {
                 Button(action: {}) {
-                    Text("Start Over")
+                    Text("Start Over").padding(.leading, 10)
                 }
                 Spacer()
                 Text("Score:")
@@ -36,7 +36,7 @@ struct ContentView: View {
                 Text("999")
                 Spacer()
                 Button(action: {}) {
-                    Text("Info")
+                    Text("Info").padding(.trailing, 10)
                 }
             }
         }
