@@ -99,9 +99,12 @@ struct ContentView: View {
                 Button(action: {
                     self.startNewGame()
                 }) {
-                    Text("Start Over")
-                        .padding(.leading, 10)
-                        .modifier(ButtonSmallTextStyle())
+                    HStack {
+                        Image("StartOverIcon")
+                        Text("Start Over")
+                            .padding(.leading, 10)
+                            .modifier(ButtonSmallTextStyle())
+                    }
                 }
                 .background(Image("Button")).modifier(Shadow())
 
@@ -115,9 +118,12 @@ struct ContentView: View {
 
                 Spacer()
                 Button(action: {}) {
-                    Text("Info")
-                        .padding(.trailing, 10)
-                        .modifier(ButtonSmallTextStyle())
+                    HStack {
+                        Image("InfoIcon")
+                        Text("Info")
+                            .padding(.trailing, 10)
+                            .modifier(ButtonSmallTextStyle())
+                    }
                 }
                 .background(Image("Button")).modifier(Shadow())
             }
