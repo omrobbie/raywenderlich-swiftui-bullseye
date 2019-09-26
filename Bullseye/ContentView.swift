@@ -10,9 +10,17 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        HStack {
-            Text("Put the bullseye as close as you can to:")
-            Text("100")
+        VStack {
+            HStack {
+                Text("Put the bullseye as close as you can to:")
+                Text("100")
+            }
+
+            HStack {
+                Text("1")
+                Slider(value: .constant(10))
+                Text("100")
+            }
         }
     }
 }
