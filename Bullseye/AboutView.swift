@@ -10,6 +10,8 @@ import SwiftUI
 
 struct AboutView: View {
 
+    let beige = Color(red: 255.0 / 255.0, green: 214.0 / 255.0, blue: 179.0 / 255.0)
+
     struct AboutHeadingStyle: ViewModifier {
         func body(content: Content) -> some View {
             content
@@ -39,6 +41,7 @@ struct AboutView: View {
             Text("Enjoy!").modifier(AboutBodyStyle())
         }
         .navigationBarTitle("About Bullseye")
+        .background(beige)
     }
 }
 
