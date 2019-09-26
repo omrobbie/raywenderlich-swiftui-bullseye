@@ -10,9 +10,9 @@ import SwiftUI
 
 struct ContentView: View {
 
-    @State var alertIsVisible: Bool = false
-    @State var sliderValue: Double = 50.0
-    @State var target: Int = Int.random(in: 1...100)
+    @State var alertIsVisible = false
+    @State var sliderValue = 50.0
+    @State var target = Int.random(in: 1...100)
 
     var body: some View {
         VStack {
@@ -36,7 +36,7 @@ struct ContentView: View {
                     Text("Start Over").padding(.leading, 10)
                 }
                 .alert(isPresented: $alertIsVisible) { () -> Alert in
-                    let roundedValue: Int = Int(self.sliderValue.rounded())
+                    let roundedValue = Int(self.sliderValue.rounded())
                     return Alert(
                         title: Text("Alert!"),
                         message: Text(
@@ -64,10 +64,10 @@ struct ContentView: View {
     }
 
     func pointsForCurrentRound() -> Int {
-        let roundedValue: Int = Int(self.sliderValue.rounded())
-        let difference: Int = abs(self.target - roundedValue)
-        let awardedPoints: Int = 100 - difference
-        
+        let roundedValue = Int(self.sliderValue.rounded())
+        let difference = abs(self.target - roundedValue)
+        let awardedPoints = 100 - difference
+
         return awardedPoints
     }
 }
