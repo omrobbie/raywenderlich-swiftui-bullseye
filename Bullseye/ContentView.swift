@@ -103,9 +103,7 @@ struct ContentView: View {
                 }) {
                     HStack {
                         Image("StartOverIcon")
-                        Text("Start Over")
-                            .padding(.leading, 10)
-                            .modifier(ButtonSmallTextStyle())
+                        Text("Start Over").modifier(ButtonSmallTextStyle())
                     }
                 }
                 .background(Image("Button")).modifier(Shadow())
@@ -122,9 +120,7 @@ struct ContentView: View {
                 Button(action: {}) {
                     HStack {
                         Image("InfoIcon")
-                        Text("Info")
-                            .padding(.trailing, 10)
-                            .modifier(ButtonSmallTextStyle())
+                        Text("Info").modifier(ButtonSmallTextStyle())
                     }
                 }
                 .background(Image("Button")).modifier(Shadow())
