@@ -12,6 +12,7 @@ struct ContentView: View {
 
     @State var alertIsVisible: Bool = false
     @State var sliderValue: Double = 50.0
+    @State var target: Int = Int.random(in: 1...100)
 
     var body: some View {
         VStack {
@@ -35,7 +36,8 @@ struct ContentView: View {
                     Text("Start Over").padding(.leading, 10)
                 }
                 .alert(isPresented: $alertIsVisible) { () -> Alert in
-                    return Alert(title: Text("Alert!"), message: Text("The slider's value is \(self.sliderValue)"), dismissButton: .default(Text("Ok")))
+                    let roundedValue: Int = Int(self.sliderValue.rounded())
+                    return Alert(title: Text("Alert!"), message: Text("The slider's value is \(roundedValue)"), dismissButton: .default(Text("Ok")))
                 }
 
                 Spacer()
