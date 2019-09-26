@@ -34,6 +34,29 @@ struct ContentView: View {
         }
     }
 
+    struct Shadow: ViewModifier {
+        func body(content: Content) -> some View {
+            content
+            .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+        }
+    }
+
+    struct ButtonLargeTextStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            content
+            .foregroundColor(Color.black)
+            .font(Font.custom("Arial Rounded MT Bold", size: 18))
+        }
+    }
+
+    struct ButtonSmallTextStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            content
+            .foregroundColor(Color.black)
+            .font(Font.custom("Arial Rounded MT Bold", size: 12))
+        }
+    }
+
     var body: some View {
         VStack {
             Spacer()
@@ -53,7 +76,7 @@ struct ContentView: View {
             Button(action: {
                 self.alertIsVisible = true
             }) {
-                Text("Hit Me!").padding(.leading, 10)
+                Text("Hit Me!").modifier(ButtonLargeTextStyle())
             }
             .alert(isPresented: $alertIsVisible) { () -> Alert in
                 Alert(
@@ -69,6 +92,7 @@ struct ContentView: View {
                     }
                 )
             }
+            .background(Image("Button")).modifier(Shadow())
 
             Spacer()
             HStack {
@@ -76,7 +100,10 @@ struct ContentView: View {
                     self.startNewGame()
                 }) {
                     Text("Start Over")
+                        .padding(.leading, 10)
+                        .modifier(ButtonSmallTextStyle())
                 }
+                .background(Image("Button")).modifier(Shadow())
 
                 Spacer()
                 Text("Score:").modifier(LabelStyle())
@@ -88,8 +115,11 @@ struct ContentView: View {
 
                 Spacer()
                 Button(action: {}) {
-                    Text("Info").padding(.trailing, 10)
+                    Text("Info")
+                        .padding(.trailing, 10)
+                        .modifier(ButtonSmallTextStyle())
                 }
+                .background(Image("Button")).modifier(Shadow())
             }
             .padding(.bottom, 20)
         }
