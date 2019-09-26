@@ -39,6 +39,7 @@ struct ContentView: View {
                     Text("Info").padding(.trailing, 10)
                 }
             }
+            .padding(.bottom, 20)
         }
     }
 }
