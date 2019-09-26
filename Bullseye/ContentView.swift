@@ -11,6 +11,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
+            Spacer()
             HStack {
                 Text("Put the bullseye as close as you can to:")
                 Text("100")
@@ -22,15 +23,18 @@ struct ContentView: View {
                 Text("100")
             }
 
+            Spacer()
             HStack {
                 Button(action: {}) {
                     Text("Start Over")
                 }
-
+                Spacer()
                 Text("Score:")
                 Text("999999")
+                Spacer()
                 Text("Round:")
                 Text("999")
+                Spacer()
                 Button(action: {}) {
                     Text("Info")
                 }
