@@ -45,9 +45,9 @@ struct ContentView: View {
                             "You scored \(pointsForCurrentRound()) points this round."
                         ),
                         dismissButton: .default(Text("Ok")) {
-                            self.score = self.score + self.pointsForCurrentRound()
+                            self.score += self.pointsForCurrentRound()
                             self.target = Int.random(in: 1...100)
-                            self.round = self.round + 1
+                            self.round += 1
                         }
                     )
                 }
