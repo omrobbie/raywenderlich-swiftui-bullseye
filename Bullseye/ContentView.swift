@@ -38,7 +38,7 @@ struct ContentView: View {
                     Text("Start Over").padding(.leading, 10)
                 }
                 .alert(isPresented: $alertIsVisible) { () -> Alert in
-                    return Alert(
+                    Alert(
                         title: Text("Alert!"),
                         message: Text(
                             "The slider's value is \(sliderValueRounded()). \n" +
@@ -70,14 +70,11 @@ struct ContentView: View {
     }
 
     func sliderValueRounded() -> Int {
-        return Int(sliderValue.rounded())
+        Int(sliderValue.rounded())
     }
 
     func pointsForCurrentRound() -> Int {
-        let difference = abs(target - sliderValueRounded())
-        let awardedPoints = 100 - difference
-
-        return awardedPoints
+        100 - abs(target - sliderValueRounded())
     }
 }
 
