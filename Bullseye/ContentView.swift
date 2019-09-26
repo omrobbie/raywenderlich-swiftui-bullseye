@@ -25,12 +25,21 @@ struct ContentView: View {
         }
     }
 
+    struct ValueStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            content
+            .foregroundColor(Color.yellow)
+            .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+            .font(Font.custom("Arial Rounded MT Bold", size: 24))
+        }
+    }
+
     var body: some View {
         VStack {
             Spacer()
             HStack {
                 Text("Put the bullseye as close as you can to:").modifier(LabelStyle())
-                Text("\(target)")
+                Text("\(target)").modifier(ValueStyle())
             }
 
             Spacer()
@@ -71,11 +80,11 @@ struct ContentView: View {
 
                 Spacer()
                 Text("Score:").modifier(LabelStyle())
-                Text("\(score)")
+                Text("\(score)").modifier(ValueStyle())
 
                 Spacer()
                 Text("Round:").modifier(LabelStyle())
-                Text("\(round)")
+                Text("\(round)").modifier(ValueStyle())
 
                 Spacer()
                 Button(action: {}) {
