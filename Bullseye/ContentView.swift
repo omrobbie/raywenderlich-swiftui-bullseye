@@ -19,7 +19,7 @@ struct ContentView: View {
             Spacer()
             HStack {
                 Text("Put the bullseye as close as you can to:")
-                Text("100")
+                Text("\(self.target)")
             }
 
             HStack {
