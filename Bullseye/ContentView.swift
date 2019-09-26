@@ -28,32 +28,32 @@ struct ContentView: View {
     struct ValueStyle: ViewModifier {
         func body(content: Content) -> some View {
             content
-            .foregroundColor(Color.yellow)
-            .shadow(color: Color.black, radius: 5, x: 2, y: 2)
-            .font(Font.custom("Arial Rounded MT Bold", size: 24))
+                .foregroundColor(Color.yellow)
+                .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+                .font(Font.custom("Arial Rounded MT Bold", size: 24))
         }
     }
 
     struct Shadow: ViewModifier {
         func body(content: Content) -> some View {
             content
-            .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+                .shadow(color: Color.black, radius: 5, x: 2, y: 2)
         }
     }
 
     struct ButtonLargeTextStyle: ViewModifier {
         func body(content: Content) -> some View {
             content
-            .foregroundColor(Color.black)
-            .font(Font.custom("Arial Rounded MT Bold", size: 18))
+                .foregroundColor(Color.black)
+                .font(Font.custom("Arial Rounded MT Bold", size: 18))
         }
     }
 
     struct ButtonSmallTextStyle: ViewModifier {
         func body(content: Content) -> some View {
             content
-            .foregroundColor(Color.black)
-            .font(Font.custom("Arial Rounded MT Bold", size: 12))
+                .foregroundColor(Color.black)
+                .font(Font.custom("Arial Rounded MT Bold", size: 12))
         }
     }
 
