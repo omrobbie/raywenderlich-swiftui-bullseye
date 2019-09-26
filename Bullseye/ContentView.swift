@@ -21,6 +21,9 @@ struct ContentView: View {
             Spacer()
             HStack {
                 Text("Put the bullseye as close as you can to:")
+                    .foregroundColor(Color.white)
+                    .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+                    .font(Font.custom("Arial Rounded MT Bold", size: 18))
                 Text("\(target)")
             }
 
