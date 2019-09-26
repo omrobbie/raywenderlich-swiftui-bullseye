@@ -24,6 +24,7 @@ struct ContentView: View {
                 Text("\(target)")
             }
 
+            Spacer()
             HStack {
                 Text("1").padding(.leading, 10)
                 Slider(value: $sliderValue, in: 1...100)
@@ -31,25 +32,32 @@ struct ContentView: View {
             }
 
             Spacer()
+            Button(action: {
+                self.alertIsVisible = true
+            }) {
+                Text("Hit Me!").padding(.leading, 10)
+            }
+            .alert(isPresented: $alertIsVisible) { () -> Alert in
+                Alert(
+                    title: Text("\(alertTitle())"),
+                    message: Text(
+                        "The slider's value is \(sliderValueRounded()). \n" +
+                        "You scored \(pointsForCurrentRound()) points this round."
+                    ),
+                    dismissButton: .default(Text("Ok")) {
+                        self.score += self.pointsForCurrentRound()
+                        self.target = Int.random(in: 1...100)
+                        self.round += 1
+                    }
+                )
+            }
+
+            Spacer()
             HStack {
                 Button(action: {
-                    self.alertIsVisible = true
+                    self.startNewGame()
                 }) {
-                    Text("Start Over").padding(.leading, 10)
-                }
-                .alert(isPresented: $alertIsVisible) { () -> Alert in
-                    Alert(
-                        title: Text("\(alertTitle())"),
-                        message: Text(
-                            "The slider's value is \(sliderValueRounded()). \n" +
-                            "You scored \(pointsForCurrentRound()) points this round."
-                        ),
-                        dismissButton: .default(Text("Ok")) {
-                            self.score += self.pointsForCurrentRound()
-                            self.target = Int.random(in: 1...100)
-                            self.round += 1
-                        }
-                    )
+                    Text("Start Over")
                 }
 
                 Spacer()
@@ -108,6 +116,13 @@ struct ContentView: View {
         }
 
         return title
+    }
+
+    func startNewGame() {
+        score = 0
+        round = 1
+        sliderValue = 50.0
+        target = Int.random(in: 1...100)
     }
 }
 
