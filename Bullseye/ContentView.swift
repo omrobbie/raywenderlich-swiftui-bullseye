@@ -73,12 +73,16 @@ struct ContentView: View {
         Int(sliderValue.rounded())
     }
 
+    func amountOff() -> Int {
+        abs(target - sliderValueRounded())
+    }
+
     func pointsForCurrentRound() -> Int {
-        100 - abs(target - sliderValueRounded())
+        100 - amountOff()
     }
 
     func alertTitle() -> String {
-        let difference = abs(target - sliderValueRounded())
+        let difference = amountOff()
         let title: String
 
         if difference == 0 {
